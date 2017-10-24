@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Dentist_Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ADMIN">
+    <Key>
+      <PropertyRef Name="AdminID" />
+    </Key>
+    <Property Name="AdminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CUSTOMER">
+    <Key>
+      <PropertyRef Name="CUSTOMERID" />
+    </Key>
+    <Property Name="CUSTOMERID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SURNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DOB" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="STREET" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="POSTCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MOBILE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DOCTORID" Type="Int32" />
+    <NavigationProperty Name="DOCTOR" Relationship="Dentist_Model.FK_CUSTOMERS_DOCTORS" FromRole="CUSTOMER" ToRole="DOCTOR" />
+  </EntityType>
+  <EntityType Name="DOCTOR">
+    <Key>
+      <PropertyRef Name="DOCTOID" />
+    </Key>
+    <Property Name="DOCTOID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SURNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DOB" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="STREET" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="POSTCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MOBILE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="CUSTOMERS" Relationship="Dentist_Model.FK_CUSTOMERS_DOCTORS" FromRole="DOCTOR" ToRole="CUSTOMER" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityContainer Name="Dentist_Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ADMINs" EntityType="Self.ADMIN" />
+    <EntitySet Name="CUSTOMERS" EntityType="Self.CUSTOMER" />
+    <EntitySet Name="DOCTORS" EntityType="Self.DOCTOR" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK_CUSTOMERS_DOCTORS" Association="Dentist_Model.FK_CUSTOMERS_DOCTORS">
+      <End Role="DOCTOR" EntitySet="DOCTORS" />
+      <End Role="CUSTOMER" EntitySet="CUSTOMERS" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="FK_CUSTOMERS_DOCTORS">
+    <End Type="Dentist_Model.DOCTOR" Role="DOCTOR" Multiplicity="0..1" />
+    <End Type="Dentist_Model.CUSTOMER" Role="CUSTOMER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DOCTOR">
+        <PropertyRef Name="DOCTOID" />
+      </Principal>
+      <Dependent Role="CUSTOMER">
+        <PropertyRef Name="DOCTORID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

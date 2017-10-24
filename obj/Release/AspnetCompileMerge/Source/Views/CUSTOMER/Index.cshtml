@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Dentist.CUSTOMER>
+
+    <h2>Patients</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SURNAME)
+            </th>
+            <th>
+                <strong>DATE OF BIRTH</strong>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ADDRESS)
+            </th>
+            <th>
+                <strong>CITY</strong>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.POSTCODE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MOBILE)
+            </th>
+            <th>
+                <strong>DENTIST</strong>
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SURNAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DOB)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ADDRESS)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.STREET)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.POSTCODE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MOBILE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DOCTOR.NAME)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CUSTOMERID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.CUSTOMERID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CUSTOMERID })
+                </td>
+            </tr>
+        }
+
+    </table>

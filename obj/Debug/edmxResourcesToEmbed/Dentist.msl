@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Dentist_ModelStoreContainer" CdmEntityContainer="Dentist_Entities">
+    <EntitySetMapping Name="ADMINs">
+      <EntityTypeMapping TypeName="Dentist_Model.ADMIN">
+        <MappingFragment StoreEntitySet="ADMIN">
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CUSTOMERS">
+      <EntityTypeMapping TypeName="Dentist_Model.CUSTOMER">
+        <MappingFragment StoreEntitySet="CUSTOMERS">
+          <ScalarProperty Name="DOCTORID" ColumnName="DOCTORID" />
+          <ScalarProperty Name="CUSTOMERID" ColumnName="CUSTOMERID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="SURNAME" ColumnName="SURNAME" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="STREET" ColumnName="STREET" />
+          <ScalarProperty Name="POSTCODE" ColumnName="POSTCODE" />
+          <ScalarProperty Name="MOBILE" ColumnName="MOBILE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DOCTORS">
+      <EntityTypeMapping TypeName="Dentist_Model.DOCTOR">
+        <MappingFragment StoreEntitySet="DOCTORS">
+          <ScalarProperty Name="DOCTOID" ColumnName="DOCTOID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="SURNAME" ColumnName="SURNAME" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="STREET" ColumnName="STREET" />
+          <ScalarProperty Name="POSTCODE" ColumnName="POSTCODE" />
+          <ScalarProperty Name="MOBILE" ColumnName="MOBILE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Dentist_Model.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

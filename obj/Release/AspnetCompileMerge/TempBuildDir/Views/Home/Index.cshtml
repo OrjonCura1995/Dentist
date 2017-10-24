@@ -1,0 +1,39 @@
+﻿@model Dentist.ADMIN
+
+    @{
+        ViewBag.Title = "Login";
+    }
+
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        <fieldset class="LoginDiv">
+            <legend>Please Log In </legend>
+
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <div style="color:red">
+                @ViewBag.Msg
+            </div>
+            <br />
+            @Html.ValidationMessageFor(a => a.USERNAME, "", new { @style = "color:red" })
+            <br />
+            <br />
+            @Html.LabelFor(a => a.USERNAME)
+            @Html.TextBoxFor(a => a.USERNAME, new { @class = "textBox" })
+            <br />
+            <br />
+            @Html.ValidationMessageFor(a => a.PASSWORD, "", new { @style = "color:red" })
+            <br />
+            <br />
+            @Html.LabelFor(a => a.PASSWORD)
+            @Html.PasswordFor(a => a.PASSWORD, new { @class = "textBox" })
+            <br />
+            <br />
+            <br />
+            <p>USERNAME = "admin"  PASSWORD = "admin"</p>
+            <br />
+            <input type="submit" class="loginBtn" value="Login" />
+
+        </fieldset>
+    }

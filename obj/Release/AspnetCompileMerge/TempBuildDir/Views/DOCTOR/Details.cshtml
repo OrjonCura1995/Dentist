@@ -1,0 +1,71 @@
+﻿@model Dentist.DOCTOR
+
+
+    <h2>Details</h2>
+
+    <div>
+        <h4>Dentists</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.NAME)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NAME)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SURNAME)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SURNAME)
+            </dd>
+
+            <dt>
+                <strong>DATE OF BIRTH</strong>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DOB)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ADDRESS)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ADDRESS)
+            </dd>
+
+            <dt>
+                <strong>CITY</strong>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.STREET)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.POSTCODE)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.POSTCODE)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MOBILE)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MOBILE)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.DOCTOID },  new { @class = "btn btn-default" }) |
+        @Html.ActionLink("Back to List", "Index", "", new { @class = "btn btn-default" })
+    </p>
